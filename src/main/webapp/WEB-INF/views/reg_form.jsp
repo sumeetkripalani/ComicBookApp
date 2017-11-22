@@ -11,6 +11,21 @@
 <title>User Registration - Contact</title>
 <s:url var="url_css" value="resources/css/style.css" />
 <link rel="stylesheet" href="${url_css}" type="text/css" />
+<s:url var="url_jqlib" value="/resources/js/jquery-3.2.1.min.js"/>
+<script src="${url_jqlib}"></script>
+<script>
+$(document).ready(function(){
+	$("#id_check_avail").click(function(){
+		$.ajax({
+			url:'check_avail',
+			data : {username:$("#id_username").val()},
+			success : function(data){
+				$("#id_res_div").html(data);
+			}
+		});
+	});
+});
+</script>
 </head>
 <s:url var="url_bg" value="/resources/images/bg.jpg" />
 <body background="${url_bg}">
@@ -28,42 +43,41 @@
 		<tr>
 			<td height="350px" valign="top">
 				<%-----page content area --%>
-				<h3>User Registration</h3> 
-				<c:if test="${err!=null}">
+				<h3>User Registration</h3> <c:if test="${err!=null}">
 					<p class="error">${err}</p>
-				</c:if>
-			
-				<s:url var="url_reg" value="/register" /> 
-				<f:form action="${url_reg}" modelAttribute="command">
+				</c:if> <s:url var="url_reg" value="/register" /> <f:form
+					action="${url_reg}" modelAttribute="command">
 					<table border="1">
 						<tr>
-						<td>Name</td>
-						<td><f:input path="user.name"/></td>				
+							<td>Name</td>
+							<td><f:input path="user.name" /></td>
 						</tr>
 						<tr>
-						<td>Contact</td>
-						<td><f:input path="user.phone"/></td>				
+							<td>Contact</td>
+							<td><f:input path="user.phone" /></td>
 						</tr>
 						<tr>
-						<td>Email</td>
-						<td><f:input path="user.email"/></td>				
+							<td>Email</td>
+							<td><f:input path="user.email" /></td>
 						</tr>
 						<tr>
-						<td>Address</td>
-						<td><f:textarea path="user.address"/></td>				
+							<td>Address</td>
+							<td><f:textarea path="user.address" /></td>
 						</tr>
 						<tr>
-						<td>Username</td>
-						<td><f:input path="user.loginName"/></td>				
+							<td>Username</td>
+							<td><f:input id="id_username" path="user.loginName" />
+								<button type="button" id="id_check_avail">Check Availability</button>
+								<div id="id_res_div" class="error"></div></td>
 						</tr>
 						<tr>
-						<td>Password</td>
-						<td><f:password path="user.password"/></td>				
+							<td>Password</td>
+							<td><f:password path="user.password" /></td>
 						</tr>
 						<tr>
-						<td colspan="2" align="right">
-						<button>Submit</button>
-						</td>				
+							<td colspan="2" align="right">
+								<button>Submit</button>
+							</td>
 						</tr>
 					</table>
 				</f:form>

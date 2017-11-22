@@ -42,4 +42,10 @@ public class HomeController {
 		return "hello"; //->/WEB-INF/view/hello.jsp
 	}
 	
+	@RequestMapping("/test/ajax_test")
+	public String testPage(Locale locale) {
+		logger.info("Welcome hello! The client locale is {}.", locale);
+		return "test"; //->/WEB-INF/view/hello.jsp
+	}
+	
 }

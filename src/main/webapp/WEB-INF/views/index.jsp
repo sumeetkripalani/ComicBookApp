@@ -52,7 +52,7 @@
 						<tr>
 						<td colspan="2" align="right">
 						<button>Login</button>
-						<a href="#">New User Registration Link</a>
+						<a href="<s:url value="/reg_form"/>">New User Registration Link</a>
 						</td>				
 						</tr>
 					</table>

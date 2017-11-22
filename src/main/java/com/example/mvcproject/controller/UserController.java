@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.mvcproject.command.LoginCommand;
 import com.example.mvcproject.command.UserCommand;
@@ -76,6 +78,13 @@ public class UserController {
 	return "dashboard_admin";
 	}
 	
+	@RequestMapping(value= {"/admin/users"})
+	public String getUserList(Model m)
+	{
+	m.addAttribute("userList", userService.getUserList());	
+	return "users";
+	}
+	
 	@RequestMapping(value= {"/reg_form"})
 	public String registrationForm(Model m) {
 		UserCommand cmd = new UserCommand();
@@ -104,5 +113,28 @@ public class UserController {
 		session.setAttribute("user", u);
 		session.setAttribute("userId", u.getUserId());
 		session.setAttribute("role",u.getRole());
+	}
+	
+	@RequestMapping(value= {"/admin/change_status"})
+	@ResponseBody
+	public String changeLoginStatus(@RequestParam Integer userId, @RequestParam Integer loginStatus) {
+		try
+		{
+		userService.changeLoginStatus(userId, loginStatus);
+		return "Success : Status Changed";
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "Error : Unable to change status";
+		}
+	}
+	
+	@RequestMapping(value= {"/check_avail"})
+	@ResponseBody
+	public String checkAvailability(@RequestParam String username) {
+		if(userService.isUsernameExist(username)) {
+			 return "This username already exists";
+		}else {
+			return "This username is available";
+		}
 	}
 }
