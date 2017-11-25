@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Registration - Contact</title>
+<title>User Registration - ComicBookApp</title>
 <s:url var="url_css" value="resources/css/style.css" />
 <link rel="stylesheet" href="${url_css}" type="text/css" />
 <s:url var="url_jqlib" value="/resources/js/jquery-3.2.1.min.js"/>

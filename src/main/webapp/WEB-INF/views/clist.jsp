@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Contact List - ContactApp</title>
+<title>Comic List - ComicBookApp</title>
 <s:url var="url_css" value="/resources/css/style.css" />
 <link rel="stylesheet" href="${url_css}" type="text/css" />
 </head>
@@ -26,10 +26,10 @@
 		<tr>
 			<td height="350px" valign="top">
 				<%-----page content area --%>
-				<h1>Contact list</h1> <c:if test="${param.act eq 'sv'}">
-					<p class="success">Contact saved successfully</p>
+				<h1>Comic list</h1> <c:if test="${param.act eq 'sv'}">
+					<p class="success">Comic saved successfully</p>
 				</c:if> <c:if test="${param.act eq 'del'}">
-					<p class="success">Contact deleted successfully</p>
+					<p class="success">Comic deleted successfully</p>
 				</c:if>
 
 				<table width="100%">
@@ -52,9 +52,9 @@
 							<th width="1%">SELECT</th>
 							<th>CID</th>
 							<th>NAME</th>
-							<th>PHONE</th>
-							<th>EMAIL</th>
-							<th>ADDRESS</th>
+							<th>GENRE</th>
+							<th>RESOURCES</th>
+							<th>SUMMARY</th>
 							<th>REMARK</th>
 							<th width="12%">ACTION</th>
 						</tr>

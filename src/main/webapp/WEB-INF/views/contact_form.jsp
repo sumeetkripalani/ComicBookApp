@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Contact Form - Contact</title>
+<title>Comic Form</title>
 <s:url var="url_css" value="resources/css/style.css" />
 <link rel="stylesheet" href="${url_css}" type="text/css" />
 </head>
@@ -28,7 +28,7 @@
 		<tr>
 			<td height="350px" valign="top">
 				<%-----page content area --%>
-				<h3>Contact Registration</h3> 
+				<h3>Comic Registration</h3> 
 				<c:if test="${err!=null}">
 					<p class="error">${err}</p>
 				</c:if>
@@ -37,19 +37,19 @@
 				<f:form action="${url_csave}" modelAttribute="command">
 					<table border="1">
 						<tr>
-						<td>Name</td>
+						<td>ComicName</td>
 						<td><f:input path="name"/></td>				
 						</tr>
 						<tr>
-						<td>Phone</td>
+						<td>ComicGenre</td>
 						<td><f:input path="phone"/></td>				
 						</tr>
 						<tr>
-						<td>Email</td>
+						<td>Resources</td>
 						<td><f:input path="email"/></td>				
 						</tr>
 						<tr>
-						<td>Address</td>
+						<td>Summary</td>
 						<td><f:textarea path="address"/></td>				
 						</tr>
 						<tr>

@@ -37,7 +37,7 @@ public class ContactController {
 				return "redirect:clist?act=sv";
 				}catch(Exception e) {
 					e.printStackTrace();
-					m.addAttribute("err","Failed to save Contact");
+					m.addAttribute("err","Failed to save Comic");
 					return "contact_form";
 				}
 			
@@ -50,7 +50,7 @@ public class ContactController {
 				return "redirect:clist?act=ed";
 				}catch(Exception e) {
 					e.printStackTrace();
-					m.addAttribute("err","Failed to edit Contact");
+					m.addAttribute("err","Failed to edit Comic");
 					return "contact_form";
 				}
 			

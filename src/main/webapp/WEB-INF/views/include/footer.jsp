@@ -1,1 +1,1 @@
-&COPY;[2009-2017] Copyrights by Sumeet Kripalani
+&COPY;[2009-2017] Copyrights by Sumeet Kripalani (sumeetkripalani@gmail.com)
